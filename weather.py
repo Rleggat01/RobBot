@@ -1,5 +1,7 @@
 from flask import Flask, request
 import random
+import json
+import requests
 
 app = Flask(__name__)
 
@@ -27,7 +29,12 @@ def dice():
     elif human == computer:
         return f'Humans = {human} \n Computers = {computer} ... It is a tie!'
 
-    
+@app.route('/driftgif', methods={'GET', 'POST'})
+def drift():
+    url = "http://api.giphy.com/v1/gifs/search?q=drift&api_key=dc6zaTOxFJmzC&limit=3"
+    response = requests.get(url)
+    return f'{response.json()["data"][0]["images"]["original"]["url"]}'
+      
     
 if __name__ == '__main__':
     app.run(debug = True)

@@ -12,7 +12,7 @@ def weather():
     else:
         return f"She'll be right, it's only {temp}"
 
-@app.route('/dice')
+@app.route('/dice' methods=['POST'])
 def dice():
     numbers = [1,2,3,4,5,6] 
     human = random.choice(numbers)

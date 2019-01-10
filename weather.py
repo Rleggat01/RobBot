@@ -7,7 +7,7 @@ def weather():
     temp = request.values.get('text')
     temp = int(temp)
     if temp > 30:
-        return "Yeah nah nah yeah it's a tad hot outside i reckon"
+        return "Yeah nah nah yeah it's a tad hot outside I reckon"
     else:
         return f"She'll be right, it's only {temp}"
     
